@@ -91,6 +91,8 @@ apt-get -y dist-upgrade
 apt-get -y autoremove
 apt-get -y purge
 
+apt-get -y openssh-server
+
 # install puppet
 # if [[ include_puppet_repo -eq 1 ]]; then
 #     # install puppet repo
