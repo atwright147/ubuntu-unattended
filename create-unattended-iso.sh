@@ -206,7 +206,7 @@ sed -i -r 's/timeout\s+[0-9]+/timeout 1/g' $tmp/iso_new/isolinux/isolinux.cfg
 
 
 # set late command
-late_command="in-target curl -L -o /home/$username/postinstall.sh https://raw.githubusercontent.com/netson/ubuntu-unattended/master/postinstall.sh; \
+late_command="in-target curl -L -o /home/$username/postinstall.sh https://raw.githubusercontent.com/atwright147/ubuntu-unattended/master/postinstall.sh; \
 in-target chmod +x /home/$username/postinstall.sh; \
 in-target /bin/sh /home/$username/postinstall.sh;"
 
