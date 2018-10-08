@@ -206,9 +206,15 @@ sed -i -r 's/timeout\s+[0-9]+/timeout 1/g' $tmp/iso_new/isolinux/isolinux.cfg
 
 
 # set late command
-late_command="chroot /target curl -L -o /home/$username/postinstall.sh https://raw.githubusercontent.com/netson/ubuntu-unattended/master/postinstall.sh; \
-    chroot /target chmod +x /home/$username/postinstall.sh; \
-    chroot /target /home/$username/postinstall.sh;"
+late_command="in-target curl -L -o /home/$username/postinstall.sh https://raw.githubusercontent.com/netson/ubuntu-unattended/master/postinstall.sh; \
+in-target chmod +x /home/$username/postinstall.sh; \
+in-target /bin/sh /home/$username/postinstall.sh;"
+
+# d-i preseed/late_command string \
+# in-target wget -O /tmp/files.tar.gz http://ubuntu/12.04/postinst/files.tar.gz ; \
+# in-target tar zxf /tmp/files.tar.gz -C /tmp/ ; \
+# in-target /bin/sh /tmp/files/post.sh ; \
+# in-target touch /root/test
 
 # copy the netson seed file to the iso
 cp -rT $tmp/$seed_file $tmp/iso_new/preseed/$seed_file
