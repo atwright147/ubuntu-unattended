@@ -4,11 +4,11 @@ set -e
 clear
 
 # check for root privilege
-if [ "$(id -u)" != "0" ]; then
-   echo " this script must be run as root" 1>&2
-   echo
-   exit 1
-fi
+# if [ "$(id -u)" != "0" ]; then
+#    echo " this script must be run as root" 1>&2
+#    echo
+#    exit 1
+# fi
 
 # print status message
 echo " preparing your server; this may take a few minutes ..."
